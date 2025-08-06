@@ -18,8 +18,6 @@ return new class extends Migration
             $table->boolean("is_default");
             $table->string("icon");
             $table->timestamps();
-            $table->foreignId("created_by");
-            $table->foreignId("updated_by");
             $table->softDeletes();
         });
     }

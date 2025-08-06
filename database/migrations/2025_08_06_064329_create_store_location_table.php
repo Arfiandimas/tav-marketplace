@@ -17,13 +17,11 @@ return new class extends Migration
             $table->string("address");
             $table->string("maps")->nullable();
             $table->time("opening_time");
-            $table->time("close_time");
+            $table->time("closing_time");
             $table->string("opening_day", 10);
             $table->string("closing_day", 10);
             $table->string("phone", 20);
             $table->timestamps();
-            $table->foreignId("created_by");
-            $table->foreignId("updated_by");
             $table->softDeletes();
         });
     }

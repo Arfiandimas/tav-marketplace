@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string("name");
             $table->string("icon");
             $table->timestamps();
-            $table->foreignId("created_by");
-            $table->foreignId("updated_by");
             $table->softDeletes();
         });
     }

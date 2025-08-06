@@ -19,8 +19,6 @@ return new class extends Migration
             $table->string("image_url");
             $table->text("note")->nullable();
             $table->timestamps();
-            $table->foreignId('created_by');
-            $table->foreignId('updated_by');
             $table->softDeletes();
         });
     }

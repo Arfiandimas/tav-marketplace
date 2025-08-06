@@ -30,8 +30,6 @@ return new class extends Migration
             $table->date('stnk_validity_period');
             $table->boolean('is_booking');
             $table->timestamps();
-            $table->foreignId('created_by');
-            $table->foreignId('updated_by');
             $table->softDeletes();
         });
     }

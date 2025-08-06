@@ -17,8 +17,6 @@ return new class extends Migration
             $table->foreignId("image_category_id")->nullable();
             $table->string("image_url");
             $table->timestamps();
-            $table->foreignId('created_by');
-            $table->foreignId('updated_by');
             $table->softDeletes();
         });
     }

@@ -16,8 +16,6 @@ return new class extends Migration
             $table->foreignId("user_id");
             $table->foreignId("car_id");
             $table->timestamps();
-            $table->foreignId('created_by');
-            $table->foreignId('updated_by');
             $table->softDeletes();
         });
     }

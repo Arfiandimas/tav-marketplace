@@ -16,8 +16,6 @@ return new class extends Migration
             $table->foreignId("inspection_sub_category_id");
             $table->string("name");
             $table->timestamps();
-            $table->foreignId("created_by");
-            $table->foreignId("updated_by");
             $table->softDeletes();
         });
     }
