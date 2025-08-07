@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\Authentication;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Authentication\LoginAdminRequest;
-use App\Services\Authentication\LoginAdminService;
+use App\Http\Requests\Authentication\LoginUserRequest;
+use App\Services\Authentication\LoginUserService;
+use Illuminate\Http\Request;
 
-class AdminAuthController extends Controller
+class UserAuthController extends Controller
 {
-    public function login(LoginAdminRequest $request) {
+    public function login(LoginUserRequest $request) {
         try {
-            $login = (new LoginAdminService($request))->call();
+            $login = (new LoginUserService($request))->call();
             if ($login->status() != 200) {
                 return $this->error($login->message(), __FUNCTION__, $login->status(), null, $login->status());
             }

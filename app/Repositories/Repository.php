@@ -114,6 +114,29 @@ class Repository implements RepositoryInterface
             throw new \Exception ('Bad in second parameter, please ensure the second variable has bool value. Set true if you wanna get first record instead of all record. The default is false');
     }
 
+     /**
+     * -----------------------------------------
+     * Select by some rule
+     * -----------------------------------------
+     * @param array $rules
+     * @param array $orRules
+     * @param boolean $first
+     * 
+     * @return document|collection
+     * 
+     */
+    public function orCondition($rules, $orRules, $first = false)
+    {
+        if (is_bool($first)) {
+            if ($first)
+                return $this->model->where($rules)->orWhere($orRules)->first();
+            else
+                return $this->model->where($rules)->orWhere($orRules)->get();
+        }
+        else
+            throw new \Exception ('Bad in second parameter, please ensure the second variable has bool value. Set true if you wanna get first record instead of all record. The default is false');
+    }
+
     /**
      * -----------------------------------------
      * Insert single record to table

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Authentication;
 
 use App\Http\Requests\ReqValidator;
 
-class AdminLoginRequest extends ReqValidator
+class LoginAdminRequest extends ReqValidator
 {
     /**
      * Get the validation rules that apply to the request.

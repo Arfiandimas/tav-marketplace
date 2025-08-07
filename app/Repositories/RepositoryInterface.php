@@ -31,6 +31,9 @@ interface RepositoryInterface
     //show collection/document by condition
     public function condition($rules, $first);
 
+    //show collection/document by condition
+    public function orCondition($rules, $orRules, $first = false);
+
     //insert single record
     public function store($request);
 

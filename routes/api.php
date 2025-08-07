@@ -9,4 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'v1'], function () {
     // Admin
     require('api/v1/admin.php');
+
+    // User
+    require('api/v1/user.php');
 });
