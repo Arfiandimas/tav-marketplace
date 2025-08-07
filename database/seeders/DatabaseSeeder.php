@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Feature;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,7 +18,16 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             AdminSeeder::class,
             DealerSeeder::class,
-            StoreLocationSeeder::class
+            StoreLocationSeeder::class,
+            BrandSeeder::class,
+            TypeSeeder::class,
+            TransmissionSeeder::class,
+            ColorSeeder::class,
+            FeatureCategorySeeder::class,
+            FeatureSeeder::class,
+            InspectionCategorySeeder::class,
+            InspectionSubCategorySeeder::class,
+            InspectionSeeder::class
         ]);
     }
 }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId("car_id");
             $table->foreignId("inspection_id");
-            $table->boolean("is_passed");
+            $table->string("status", 20);
             $table->string("image_url");
             $table->text("note")->nullable();
             $table->timestamps();
