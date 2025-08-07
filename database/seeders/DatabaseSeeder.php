@@ -27,7 +27,12 @@ class DatabaseSeeder extends Seeder
             FeatureSeeder::class,
             InspectionCategorySeeder::class,
             InspectionSubCategorySeeder::class,
-            InspectionSeeder::class
+            InspectionSeeder::class,
+            CarSeeder::class,
+            CarImageSeeder::class,
+            CarFeatureSeeder::class,
+            CarInspectionSeeder::class,
+            UserWishlistSeeder::class
         ]);
     }
 }

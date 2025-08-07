@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('store_location_id');
-            $table->foreignId('car_brand_id');
-            $table->foreignId('car_type_id');
-            $table->foreignId('car_transmission_id');
-            $table->foreignId('car_color_id');
+            $table->foreignId('brand_id');
+            $table->foreignId('type_id');
+            $table->foreignId('transmission_id');
+            $table->foreignId('color_id');
             $table->string('fuel_type', 100);
             $table->tinyInteger('number_of_seats');
             $table->string('registration_type', 100);
