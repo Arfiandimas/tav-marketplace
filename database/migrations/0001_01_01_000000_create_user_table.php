@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('phone', 20);
+            $table->string('phone', 20)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('gauth_id')->nullable();
+            $table->string('gauth_type')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
