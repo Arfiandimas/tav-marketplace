@@ -12,4 +12,7 @@ Route::group(['prefix' => 'v1'], function () {
 
     // User
     require('api/v1/user.php');
+
+    // Dealer
+    require('api/v1/dealer.php');
 });
