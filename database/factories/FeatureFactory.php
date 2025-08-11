@@ -79,7 +79,7 @@ class FeatureFactory extends Factory
             'feature_category_id' => $featureCategoryId,
             'is_default' => fake()->randomElement([true, true, false]),
             'name' => $entry['child'],
-            'icon' => fake()->imageUrl($width = 640, $height = 480)
+            'icon' => 'https://picsum.photos/640/480?random=' . rand(1,10000),
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\CarModel;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -24,6 +25,9 @@ class CarFactory extends Factory
                 "type_id" => 3,
                 "transmission_id" => 2,
                 "color_id" => fake()->randomElement([1,2,3,4]),
+                "car_model_id" => CarModel::where('name', 'CR-V')->value('id'),
+                "variation_id" => null,
+                "no_plat" => fake()->randomElement(["H", "B", "AB"])." ". rand(1000, 9999). " ". randomAlphabet(2, "uppercase"),
                 "fuel_type" => "Bensin",
                 "number_of_seats" => 4,
                 "registration_type" => "Perorangan",
@@ -42,6 +46,9 @@ class CarFactory extends Factory
                 "type_id" => 4,
                 "transmission_id" => 2,
                 "color_id" => fake()->randomElement([1,2,3,4]),
+                "car_model_id" => CarModel::where('name', 'AVANZA')->value('id'),
+                "variation_id" => null,
+                "no_plat" => fake()->randomElement(["H", "B", "AB"])." ". rand(1000, 9999). " ". randomAlphabet(2, "uppercase"),
                 "fuel_type" => "Bensin",
                 "number_of_seats" => 7,
                 "registration_type" => "Perorangan",
@@ -60,6 +67,9 @@ class CarFactory extends Factory
                 "type_id" => 4,
                 "transmission_id" => 2,
                 "color_id" => fake()->randomElement([1,2,3,4]),
+                "car_model_id" => CarModel::where('name', 'XPANDER')->value('id'),
+                "variation_id" => null,
+                "no_plat" => fake()->randomElement(["H", "B", "AB"])." ". rand(1000, 9999). " ". randomAlphabet(2, "uppercase"),
                 "fuel_type" => "Bensin",
                 "number_of_seats" => 7,
                 "registration_type" => "Perorangan",

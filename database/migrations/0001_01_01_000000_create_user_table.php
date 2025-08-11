@@ -20,6 +20,10 @@ return new class extends Migration
             $table->string('password');
             $table->string('gauth_id')->nullable();
             $table->string('gauth_type')->nullable();
+            $table->string('nik', 20)->nullable();
+            $table->string('npwp', 25)->nullable();
+            $table->string('tempat_lahir', 30)->nullable();
+            $table->date('tanggal_lahir')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

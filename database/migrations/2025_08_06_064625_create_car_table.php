@@ -19,6 +19,9 @@ return new class extends Migration
             $table->foreignId('type_id');
             $table->foreignId('transmission_id');
             $table->foreignId('color_id');
+            $table->foreignId('car_model_id');
+            $table->foreignId('variation_id')->nullable();
+            $table->string('no_plat', 20);
             $table->string('fuel_type', 100);
             $table->tinyInteger('number_of_seats');
             $table->string('registration_type', 100);

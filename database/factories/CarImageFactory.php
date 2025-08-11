@@ -21,7 +21,7 @@ class CarImageFactory extends Factory
         return [
             "car_id" => Car::inRandomOrder()->limit(1)->pluck("id")->first(),
             "image_category_id" => ImageCategory::inRandomOrder()->limit(1)->pluck("id")->first(),
-            "image_url" => fake()->imageUrl($width = 640, $height = 480)
+            "image_url" => 'https://picsum.photos/640/480?random=' . rand(1,10000),
         ];
     }
 }

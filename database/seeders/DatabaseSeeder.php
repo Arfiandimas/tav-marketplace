@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Feature;
+use App\Models\Variation;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +21,8 @@ class DatabaseSeeder extends Seeder
             DealerSeeder::class,
             StoreLocationSeeder::class,
             BrandSeeder::class,
+            CarModelSeeder::class,
+            VariationSeeder::class,
             TypeSeeder::class,
             TransmissionSeeder::class,
             ColorSeeder::class,

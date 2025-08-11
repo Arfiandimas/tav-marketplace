@@ -38,7 +38,7 @@ class CarInspectionFactory extends Factory
             'car_id'     => $carIds[$carIndex],
             'inspection_id' => $inspectionId++,
             'status' => fake()->randomElement(['passed', 'passed', 'passed', 'passed', 'passed', 'not passed', 'na']),
-            'image_url' => fake()->imageUrl($width = 640, $height = 480),
+            'image_url' => 'https://picsum.photos/640/480?random=' . rand(1,10000),
             'note' => null
         ];
     }

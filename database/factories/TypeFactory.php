@@ -45,7 +45,7 @@ class TypeFactory extends Factory
         
         return [
             "name" => $datas[$number++],
-            "icon" => fake()->imageUrl($width = 640, $height = 480)
+            "icon" => 'https://picsum.photos/640/480?random=' . rand(1,10000),
         ];
     }
 }

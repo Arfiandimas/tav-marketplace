@@ -30,6 +30,10 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+            'nik' => fake()->randomElement([rand(1111111111111111,9999999999999999), null, null]),
+            'npwp' => fake()->randomElement([rand(111111111111111,999999999999999), null, null]),
+            'tempat_lahir' => fake()->city(),
+            'tanggal_lahir' => fake()->dateTimeBetween($startDate = '-60 years', $endDate = '-20 years', $timezone = null)->format('Y-m-d')
         ];
     }
 
