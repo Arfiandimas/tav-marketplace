@@ -32,7 +32,7 @@ class CreateUpdateStoreLocationRequest extends ReqValidator
         ];
         
         if(!isset($this->id)){
-            $rules = $this->addRequired($rules, ['id', 'nullable']);
+            $rules = $this->addRequired($rules, ['id', 'maps']);
         }
 
         return $rules;

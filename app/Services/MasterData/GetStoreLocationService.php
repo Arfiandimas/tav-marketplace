@@ -26,7 +26,7 @@ class GetStoreLocationService extends ServiceBase
     public function call(): ServiceResponse
     {
         try{
-            $storeLocation = $this->storeLocationRepo->paginate(20);
+            $storeLocation = $this->storeLocationRepo->paginateWithConditions([], 20, 'created_at', 'desc');
             $this->results = [
                 'total_data' => $storeLocation->total(),
                 'per_page' => intval ($storeLocation->perPage()),
