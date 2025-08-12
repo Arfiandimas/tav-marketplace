@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\MasterData\BrandController;
 use App\Http\Controllers\Admin\MasterData\StoreLocationController;
+use App\Http\Controllers\Admin\MasterData\TypeController;
 use App\Http\Controllers\Authentication\AdminAuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,11 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('', [BrandController::class, 'index']);
             Route::post('', [BrandController::class, 'createUpdate']);
             Route::delete('{id}', [BrandController::class, 'delete']);
+        });
+        Route::group(['prefix' => 'type'], function () {
+            Route::get('', [TypeController::class, 'index']);
+            Route::post('', [TypeController::class, 'createUpdate']);
+            Route::delete('{id}', [TypeController::class, 'delete']);
         });
     });
 });

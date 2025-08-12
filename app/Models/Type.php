@@ -13,4 +13,11 @@ class Type extends Model
     protected $table = 'type';
 
     protected $guarded = ['id'];
+
+    public function getIconAttribute() {
+        if (isset($this->attributes['icon']) && $this->attributes['icon']) {
+            return request()->getSchemeAndHttpHost().'/storage/type-icon/'.$this->attributes['icon'];
+        }
+        return null;
+    }
 }

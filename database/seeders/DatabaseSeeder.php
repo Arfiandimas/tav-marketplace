@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             InspectionSeeder::class,
             CarSeeder::class,
             ImageCategorySeeder::class,
-            CarImageSeeder::class, // SINI
+            CarImageSeeder::class,
             CarFeatureSeeder::class,
             CarInspectionSeeder::class,
             UserWishlistSeeder::class
