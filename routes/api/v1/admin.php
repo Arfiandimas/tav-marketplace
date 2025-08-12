@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\MasterData\CarModelController;
 use App\Http\Controllers\Admin\MasterData\StoreLocationController;
 use App\Http\Controllers\Admin\MasterData\TransmissionController;
 use App\Http\Controllers\Admin\MasterData\TypeController;
+use App\Http\Controllers\Admin\MasterData\VariationController;
 use App\Http\Controllers\Authentication\AdminAuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,11 @@ Route::group(['prefix' => 'admin'], function () {
                 Route::get('', [CarModelController::class, 'index']);
                 Route::post('', [CarModelController::class, 'createUpdate']);
                 Route::delete('{id}', [CarModelController::class, 'delete']);
+                Route::group(['prefix' => '{car_model_id}/variation'], function () {
+                    Route::get('', [VariationController::class, 'index']);
+                    Route::post('', [VariationController::class, 'createUpdate']);
+                    Route::delete('{id}', [VariationController::class, 'delete']);
+                });
             });
         });
         Route::group(['prefix' => 'type'], function () {

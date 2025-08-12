@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('variation', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("model_id");
+            $table->foreignId("car_model_id");
             $table->string("name");
             $table->timestamps();
             $table->softDeletes();

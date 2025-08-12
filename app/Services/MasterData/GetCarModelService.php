@@ -26,14 +26,14 @@ class GetCarModelService extends ServiceBase
     public function call(): ServiceResponse
     {
         try{
-            $storeLocation = $this->carModelRepo->paginateWithConditions(['brand_id' => $this->brand_id], 20, 'created_at', 'desc');
+            $data = $this->carModelRepo->paginateWithConditions(['brand_id' => $this->brand_id], 20, 'created_at', 'desc');
             $this->results = [
-                'total_data' => $storeLocation->total(),
-                'per_page' => intval ($storeLocation->perPage()),
-                'current_page' => $storeLocation->currentPage(),
-                'last_page' => $storeLocation->LastPage(),
-                'next_page_url' => urldecode($storeLocation->nextPageUrl()),
-                'result' => $storeLocation->toArray()['data']
+                'total_data' => $data->total(),
+                'per_page' => intval ($data->perPage()),
+                'current_page' => $data->currentPage(),
+                'last_page' => $data->LastPage(),
+                'next_page_url' => urldecode($data->nextPageUrl()),
+                'result' => $data->toArray()['data']
             ];
             return self::success($this->results);
         }catch (\Throwable $th) {

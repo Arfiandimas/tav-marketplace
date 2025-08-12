@@ -3,19 +3,19 @@
 namespace App\Services\MasterData;
 
 use App\Base\ServiceBase;
-use App\Models\Transmission;
+use App\Models\Variation;
 use App\Repositories\Repository;
 use App\Responses\ServiceResponse;
 
-class GetTransmissionService extends ServiceBase
+class GetVariationService extends ServiceBase
 {
     protected $results;
-    protected $transmissionRepo;
+    protected $variationRepo;
 
-    public function __construct()
+    public function __construct(protected int $car_model_id)
     {
         $this->results = null;
-        $this->transmissionRepo = new Repository(new Transmission());
+        $this->variationRepo = new Repository(new Variation());
     }
 
     /**
@@ -26,7 +26,7 @@ class GetTransmissionService extends ServiceBase
     public function call(): ServiceResponse
     {
         try{
-            $data = $this->transmissionRepo->paginateWithConditions([], 20, 'created_at', 'desc');
+            $data = $this->variationRepo->paginateWithConditions(['car_model_id' => $this->car_model_id], 20, 'created_at', 'desc');
             $this->results = [
                 'total_data' => $data->total(),
                 'per_page' => intval ($data->perPage()),
@@ -36,6 +36,7 @@ class GetTransmissionService extends ServiceBase
                 'result' => $data->toArray()['data']
             ];
             return self::success($this->results);
+            return self::success(null);
         }catch (\Throwable $th) {
             return self::catchError($th, $th->getMessage());
         }
