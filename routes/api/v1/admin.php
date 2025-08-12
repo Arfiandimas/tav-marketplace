@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\MasterData\TransmissionController;
 use App\Http\Controllers\Admin\MasterData\TypeController;
 use App\Http\Controllers\Admin\MasterData\VariationController;
 use App\Http\Controllers\Authentication\AdminAuthController;
+use App\Http\Controllers\MasterData\FeatureCategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin'], function () {
@@ -58,6 +59,12 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('', [ColorController::class, 'index']);
             Route::post('', [ColorController::class, 'createUpdate']);
             Route::delete('{id}', [ColorController::class, 'delete']);
+        });
+        // Feature Category
+        Route::group(['prefix' => 'feature-category'], function () {
+            Route::get('', [FeatureCategoryController::class, 'index']);
+            Route::post('', [FeatureCategoryController::class, 'createUpdate']);
+            Route::delete('{id}', [FeatureCategoryController::class, 'delete']);
         });
     });
 });

@@ -32,7 +32,7 @@ class CreateUpdateBrandRequest extends ReqValidator
                         ->whereRaw('LOWER(name) = ?', [strtolower($value)]);
                     
                     if ($query->exists()) {
-                        $fail('The name has already been taken.');
+                        $fail('Email sudah digunakan.');
                     }
                 },
             ],
