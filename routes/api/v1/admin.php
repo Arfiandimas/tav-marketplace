@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\MasterData\BrandController;
+use App\Http\Controllers\Admin\MasterData\CarModelController;
 use App\Http\Controllers\Admin\MasterData\StoreLocationController;
 use App\Http\Controllers\Admin\MasterData\TransmissionController;
 use App\Http\Controllers\Admin\MasterData\TypeController;
@@ -23,6 +24,11 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('', [BrandController::class, 'index']);
             Route::post('', [BrandController::class, 'createUpdate']);
             Route::delete('{id}', [BrandController::class, 'delete']);
+            Route::group(['prefix' => '{brand_id}/car-model'], function () {
+                Route::get('', [CarModelController::class, 'index']);
+                Route::post('', [CarModelController::class, 'createUpdate']);
+                Route::delete('{id}', [CarModelController::class, 'delete']);
+            });
         });
         Route::group(['prefix' => 'type'], function () {
             Route::get('', [TypeController::class, 'index']);
