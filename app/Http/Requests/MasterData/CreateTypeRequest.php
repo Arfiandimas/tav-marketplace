@@ -3,6 +3,7 @@
 namespace App\Http\Requests\MasterData;
 
 use App\Http\Requests\ReqValidator;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 class CreateTypeRequest extends ReqValidator
@@ -16,7 +17,20 @@ class CreateTypeRequest extends ReqValidator
     {
         $rules = [
             'id' => 'integer|exists:type,id',
-            'name' => ['string', 'max:255',  Rule::unique('type', 'name')->ignore($this->id)->whereNull('deleted_at')],
+            'name' => [
+                'string',
+                'max:255',
+                function ($attribute, $value, $fail) {
+                    $query = DB::table('type')
+                        ->whereNull('deleted_at')
+                        ->where('id', '!=', $this->id)
+                        ->whereRaw('LOWER(name) = ?', [strtolower($value)]);
+                    
+                    if ($query->exists()) {
+                        $fail('The name has already been taken.');
+                    }
+                },
+            ],
             'icon' => 'required|image|mimes:jpeg,png,jpg|max:256',
         ];
         
