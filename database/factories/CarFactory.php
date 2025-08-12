@@ -37,7 +37,7 @@ class CarFactory extends Factory
                 "current_mileage" => rand(11111, 99999),
                 "service_book" => fake()->randomElement([true, true, false]),
                 "stnk_validity_period" => fake()->randomElement(["2026-05-01", "2026-01-01", "2026-09-01"]),
-                "is_booking" => false
+                "status" => fake()->randomElement(["booking", "available", "sold", "available", "available"]),
             ],
             [
                 "name" => "2024 Toyota AVANZA G 1.5",
@@ -58,7 +58,7 @@ class CarFactory extends Factory
                 "current_mileage" => rand(1111, 9999),
                 "service_book" => fake()->randomElement([true, true, false]),
                 "stnk_validity_period" => fake()->randomElement(["2026-05-01", "2026-01-01", "2026-09-01"]),
-                "is_booking" => false,
+                "status" => fake()->randomElement(["booking", "available", "sold", "available", "available"]),
             ],
             [
                 "name" => "2023 Mitsubishi XPANDER CROSS PLUS 1.5",
@@ -79,7 +79,7 @@ class CarFactory extends Factory
                 "current_mileage" => rand(1111, 9999),
                 "service_book" => fake()->randomElement([true, true, false]),
                 "stnk_validity_period" => fake()->randomElement(["2026-05-01", "2026-01-01", "2026-09-01"]),
-                "is_booking" => false,
+                "status" => fake()->randomElement(["booking", "available", "sold", "available", "available"]),
             ]
         ];
         

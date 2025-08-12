@@ -31,7 +31,7 @@ return new class extends Migration
             $table->foreignId('current_mileage');
             $table->boolean('service_book');
             $table->date('stnk_validity_period');
-            $table->boolean('is_booking');
+            $table->string('status', 20)->default("available");
             $table->timestamps();
             $table->softDeletes();
         });
