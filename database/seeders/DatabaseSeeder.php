@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             InspectionCategorySeeder::class,
             InspectionSubCategorySeeder::class,
             InspectionSeeder::class,
+            BenefitSeeder::class,
             CarSeeder::class,
             ImageCategorySeeder::class,
             CarImageSeeder::class,
