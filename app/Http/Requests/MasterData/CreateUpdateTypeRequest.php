@@ -6,7 +6,7 @@ use App\Http\Requests\ReqValidator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
-class CreateTypeRequest extends ReqValidator
+class CreateUpdateTypeRequest extends ReqValidator
 {
     /**
      * Get the validation rules that apply to the request.

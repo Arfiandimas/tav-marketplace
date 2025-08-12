@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\MasterData\BrandController;
 use App\Http\Controllers\Admin\MasterData\CarModelController;
 use App\Http\Controllers\Admin\MasterData\ColorController;
+use App\Http\Controllers\Admin\MasterData\FeatureController;
 use App\Http\Controllers\Admin\MasterData\StoreLocationController;
 use App\Http\Controllers\Admin\MasterData\TransmissionController;
 use App\Http\Controllers\Admin\MasterData\TypeController;
@@ -65,6 +66,11 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('', [FeatureCategoryController::class, 'index']);
             Route::post('', [FeatureCategoryController::class, 'createUpdate']);
             Route::delete('{id}', [FeatureCategoryController::class, 'delete']);
+            Route::group(['prefix' => '{feature_category_id}/feature'], function () {
+                Route::get('', [FeatureController::class, 'index']);
+                Route::post('', [FeatureController::class, 'createUpdate']);
+                Route::delete('{id}', [FeatureController::class, 'delete']);
+            });
         });
     });
 });

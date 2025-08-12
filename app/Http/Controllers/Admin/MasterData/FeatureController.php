@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Admin\MasterData;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MasterData\CreateUpdateTypeRequest;
-use App\Services\MasterData\CreateUpdateTypeService;
-use App\Services\MasterData\DeleteTypeService;
-use App\Services\MasterData\GetTypeService;
+use App\Http\Requests\MasterData\CreateUpdateFeatureRequest;
+use App\Services\MasterData\CreateUpdateFeatureService;
+use App\Services\MasterData\DeleteFeatureService;
+use App\Services\MasterData\GetFeatureService;
 
-class TypeController extends Controller
+class FeatureController extends Controller
 {
-    public function index()
+    public function index($feature_category_id)
     {
         try {
-            $results = (new GetTypeService())->call();
+            $results = (new GetFeatureService($feature_category_id))->call();
             if ($results->status() != 200) {
                 return $this->error($results->message(), __FUNCTION__, $results->status(), null, $results->status());
             }
@@ -24,10 +24,10 @@ class TypeController extends Controller
         }
     }
 
-    public function createUpdate(CreateUpdateTypeRequest $request)
+    public function createUpdate(CreateUpdateFeatureRequest $request)
     {
         try {
-            $results = (new CreateUpdateTypeService($request))->call();
+            $results = (new CreateUpdateFeatureService($request))->call();
             if ($results->status() != 200) {
                 return $this->error($results->message(), __FUNCTION__, $results->status(), null, $results->status());
             }
@@ -39,10 +39,10 @@ class TypeController extends Controller
         }
     }
 
-    public function delete($id)
+    public function delete($feature_category_id, $id)
     {
         try {
-            $results = (new DeleteTypeService($id))->call();
+            $results = (new DeleteFeatureService($id))->call();
             if ($results->status() != 200) {
                 return $this->error($results->message(), __FUNCTION__, $results->status(), null, $results->status());
             }
